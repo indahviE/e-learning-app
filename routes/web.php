@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthControlller;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +34,11 @@ Route::get('/user/update/{id}', [UserController::class, 'user_view_update']);
 Route::post('/user/create', [UserController::class, 'user_create']);
 Route::post('/user/update/{id}', [UserController::class, 'user_update']);
 Route::post('/user/delete/{id}', [UserController::class, 'user_delete']);
+Route::post('/user/assign/pengajar/{id}', [UserController::class, 'user_assign_pengajar']);
+
+Route::get('/category', [CategoryController::class, 'category_view']);
+Route::get('/category/create', [CategoryController::class, 'category_view_create']);
+
+Route::post('/category/delete/{id}', [CategoryController::class, 'category_delete']);
+Route::post('/category/restore/{id}', [CategoryController::class, 'category_restore']);
+Route::post('/category/create', [CategoryController::class, 'category_create']);

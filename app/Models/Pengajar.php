@@ -16,6 +16,7 @@ class Pengajar extends Model
         'name',
         'keahlian',
         'bio',
-        'foto'
+        'foto',
+        'user_id'
     ];
 }
