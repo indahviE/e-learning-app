@@ -17,7 +17,7 @@ class CategoryController extends Controller
 
         if($request->s){
             $search = $request->s;
-            $category = Category::where('name', 'LIKE', '%' . $search . '%')->paginate(10);
+            $category = Category::where('nama_pelajaran', 'LIKE', '%' . $search . '%')->paginate(10);
         }
 
         return view('category_view', ['s' => $search, 'data_category' => $category, 'data_delete' => $delete_data]);
@@ -28,8 +28,10 @@ class CategoryController extends Controller
         return view('category_create');
     }
 
-    public function category_view_update(Request $request){
-        
+    public function category_view_update(Request $request, $id){
+        $category = Category::findOrFail($id);
+
+        return view('category_update', ['data' => $category]);
     }
 
     public function category_create(Request $request){
@@ -41,13 +43,25 @@ class CategoryController extends Controller
 
             $request['foto'] = $file_url;
         }
-        Category::create($request->all()); 
 
-        return redirect('/category')->with('ok', 'Tambah Data telah berhasil');
+        Category::create($request->all()); 
+        return redirect('/category')->with('ok', 'Tambah Data telah berhasil!');
     }
 
-    public function category_update(){
+    public function category_update(Request $request, $id){
+        $category = Category::findOrFail($id);
 
+        // Mengecek apakah admin menyantumkan foto pada form
+        if($request->hasFile('file_foto')){
+            $file = $request->file('file_foto'); // simpan file dalam variabel
+            $path = $file->store('public/store'); // menampung lokasi file disimpan dalam projek : public/store/...
+            $file_url = Storage::url($path); // untuk mendapatkan filesupaya bisa tampil di web : http://...
+
+            $request['foto'] = $file_url; // tambahkan $request[foto] agar bisa tersimpan di database
+        }
+
+        $category->update($request->all());
+        return redirect('/category')->with('ok', 'Modify data berhasil!');
     }
 
     public function category_delete(Request $request, $id){

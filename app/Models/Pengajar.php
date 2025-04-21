@@ -19,4 +19,15 @@ class Pengajar extends Model
         'foto',
         'user_id'
     ];
+
+    /**
+     * Get the user that owns the Pengajar
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        // untuk mendapatkan column relasi
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

@@ -14,11 +14,26 @@ class Kursus extends Model
     
     protected $fillable = [
         'nama_kursus',
-        'desksripsi',
+        'deskripsi',
         'tanggal',
         'harga',
+        'foto',
         'pengajar_id',
         'category_id',
         'like'
     ];
+
+    /**
+     * Get the pengajar that owns the Kursus
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function pengajar()
+    {
+        return $this->belongsTo(Pengajar::class, 'pengajar_id', 'id');
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }
