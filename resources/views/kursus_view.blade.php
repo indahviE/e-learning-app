@@ -73,7 +73,7 @@
                                             {{ $loop->iteration }}
                                         </th>
                                         <td
-                                            class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                            class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs p-4">
                                             {{ $data->nama_kursus }}
                                         </td>
                                         <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs  p-4">
@@ -114,7 +114,10 @@
                                         </td>
 
                                         <td
-                                            class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 flex ">
+                                            class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 flex flex-col ">
+                                            <a href="/kursus/{{$data->id}}/video" type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-xs px-3 py-1.5 text-center me-2 mb-2">Lihat Detail Vidio -></a>
+
+
                                             <a href="/kursus/update/{{ $data->id }}" type="submit"
                                                 class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-3 py-1.5 text-center me-2 mb-2">Update
                                                 Data</a>
@@ -204,7 +207,7 @@
                                     {{ $loop->iteration }}
                                 </th>
                                 <td
-                                    class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs p-4">
                                     {{ $data->nama_kursus }}
                                 </td>
                                 <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs  p-4">
@@ -243,7 +246,6 @@
                                     class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                     {{ $data->like }}
                                 </td>
-
                                     <td
                                         class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                         <form action="/kursus/restore/{{ $data->id }}" method="post">

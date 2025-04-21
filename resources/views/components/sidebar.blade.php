@@ -87,16 +87,6 @@
             </a>
 
         </li>
-        <li class="mb-1 group">
-            <a href="/vidio"
-                class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
-                <i class=' mr-1.5 text-lg'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m3.901 7L6 4.066v7.868z" clip-rule="evenodd"/></svg>
-                </i>
-                <span class="text-sm">Vidio</span>
-                {{-- <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i> --}}
-            </a>
-        </li>
 
         <li class="mb-1 group">
             <a href="/category"

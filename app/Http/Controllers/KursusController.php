@@ -21,7 +21,7 @@ class KursusController extends Controller
 
         if($request->s){
             $search = $request->s;
-            $kursus = Kursus::with(['user'])->where('nama_pelajaran', 'LIKE', '%' . $search . '%')->paginate(10);
+            $kursus = Kursus::with(['pengajar', 'category'])->where('nama_kursus', 'LIKE', '%' . $search . '%')->paginate(10);
         }
 
         return view('kursus_view', ['s' => $search, 'data_kursus' => $kursus, 'data_delete' => $delete_data]);

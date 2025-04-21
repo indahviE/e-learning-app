@@ -19,7 +19,7 @@ class PengajarController extends Controller
 
         if($request->s){
             $search = $request->s;
-            $pengajar = Pengajar::with(['user'])->where('nama_pelajaran', 'LIKE', '%' . $search . '%')->paginate(10);
+            $pengajar = Pengajar::with(['user'])->where('name', 'LIKE', '%' . $search . '%')->paginate(10);
         }
 
         return view('pengajar_view', ['s' => $search, 'data_pengajar' => $pengajar, 'data_delete' => $delete_data]);

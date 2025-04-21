@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\KursusController;
 use App\Http\Controllers\PengajarController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,3 +66,13 @@ Route::post('/kursus/create', [KursusController::class, 'kursus_create']);
 Route::post('/kursus/update/{id}', [KursusController::class, 'kursus_update']);
 Route::post('/kursus/delete/{id}', [KursusController::class, 'kursus_delete']);
 Route::post('/kursus/restore/{id}', [KursusController::class, 'kursus_restore']);
+
+
+Route::get('/kursus/{id}/video', [VideoController::class, 'video_view']);
+Route::get('/kursus/{id}/video/create', [VideoController::class, 'video_view_create']);
+Route::get('/kursus/{id}/video/update/{id_video}', [VideoController::class, 'video_view_update']);
+
+Route::post('/kursus/{id}/video/create', [VideoController::class, 'video_create']);
+Route::post('/kursus/{id}/video/update/{id_video}', [VideoController::class, 'video_update']);
+Route::post('/kursus/{id}/video/delete/{id_video}', [VideoController::class, 'video_delete']);
+Route::post('/kursus/{id}/video/restore/{id_video}', [VideoController::class, 'video_restore']);
