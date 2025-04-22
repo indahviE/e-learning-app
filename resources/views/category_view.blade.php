@@ -1,4 +1,4 @@
-a@include('components.header_dashboard')
+@include('components.header_dashboard')
 <!-- component -->
 @include('components.sidebar')
 
@@ -72,8 +72,8 @@ a@include('components.header_dashboard')
                                         </td>
                                         <td
                                             class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                            <a href="{{$data->foto}}">
-                                                <img src=" {{ $data->foto }}" alt="" style="width: 100px; height:100px">
+                                            <a href="{{$data->foto}}" target="_blank">
+                                                <img src=" {{ $data->foto }}" alt="" style="width: 40; height:40px">
                                             </a>
                                            
                                         </td>
