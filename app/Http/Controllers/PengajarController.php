@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengajar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PengajarController extends Controller
@@ -63,7 +64,7 @@ class PengajarController extends Controller
         }
 
         $pengajar->update($request->all());
-        return redirect('/pengajar')->with('ok', 'Modify data berhasil!');
+        return redirect('/profile')->with('ok', 'Modify data berhasil!');
     }
 
     public function pengajar_delete(Request $request, $id){
@@ -78,6 +79,12 @@ class PengajarController extends Controller
         $pengajar->restore();
 
         return redirect('/pengajar')->with('ok', 'Data Telah Dikembalikan');
+    }
+
+    public function profile(Request $request){
+        $s = "";
+        $pengajar = Pengajar::where('user_id', Auth::user()->id)->first();
+        return view('profile', ['s' => $s, 'data' => $pengajar]);
     }
 
 }

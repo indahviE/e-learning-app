@@ -87,10 +87,10 @@
                                             class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 flex">
                                             
 
-                                                <a href="/pengajar/update/{{$data->id}}" type="submit"
+                                                {{-- <a href="/pengajar/update/{{$data->id}}" type="submit"
                                                     class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-3 py-1.5 text-center me-2 mb-2">Update Data</a>
 
-                                            
+                                             --}}
 
                                             <form action="/pengajar/delete/{{ $data->id }}" method="POST">
                                                 @csrf

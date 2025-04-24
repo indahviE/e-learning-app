@@ -29,7 +29,7 @@ class AuthControlller extends Controller
 
             if($user->role == "admin") return redirect('/user');
             if($user->role == "member") return redirect('/');
-            if($user->role == "pengajar") return redirect('/kursus');
+            if($user->role == "pengajar") return redirect('/profile');
 
             // arahin ke halaman 
         }

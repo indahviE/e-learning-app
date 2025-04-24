@@ -13,8 +13,20 @@ class Comment extends Model
     public $table = "comment";
     
     protected $fillable = [
-        'pengguna_id',
+        'user_id',
         'tanggal',
-        'text'
+        'isi_komen',
+        'star_rating',
+        'kursus_id'
     ];
+
+    /**
+     * Get the user that owns the Comment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

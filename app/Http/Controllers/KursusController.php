@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 use App\Models\Kursus;
 use App\Models\Pengajar;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class KursusController extends Controller
 {
     //
     public function kursus_view(Request $request){
-        $kursus = Kursus::with(['pengajar', 'category'])->paginate(10);
+        $pengajar = Pengajar::where('user_id', Auth::user()->id)->first();
+        $kursus = Kursus::with(['pengajar', 'category'])->where('pengajar_id', $pengajar->id)->paginate(10);
         $delete_data = Kursus::onlyTrashed()->get();
         $search = "";
 

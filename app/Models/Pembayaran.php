@@ -14,10 +14,24 @@ class Pembayaran extends Model
     
     protected $fillable = [
         'kursus_id',
-        'pengguna_id',
+        'user_id',
         'bukti_bayar',
         'tanggal',
         'metode_bayar',
         'status'
     ];
+
+    /**
+     * Get the kursus that owns the Pembayaran
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function kursus()
+    {
+        return $this->belongsTo(Kursus::class, 'kursus_id', 'id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

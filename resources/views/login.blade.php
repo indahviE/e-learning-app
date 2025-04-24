@@ -8,7 +8,7 @@
             @csrf
             <div>
                 <div class="text-3xl font-bold ">
-                    E-<span class="text-amber-400">LEARNING
+                    RUANG<span class="text-amber-400">ILMU
                     </span>
                 </div>
     
@@ -19,7 +19,7 @@
             </div>
     
     
-            <p class="text-gray text-sm">Selamat datang di website toko pinky. tempat persedian terbaik untuk dapurmu.</p>
+            <p class="text-gray text-sm">Selamat datang di website RuangIlmu. tempat asik buat belajar mudah, nyaman dan cepat.</p>
             <div class="flex flex-col gap-4">
                 
                 {{-- Alert Pemberitahuan --}}
