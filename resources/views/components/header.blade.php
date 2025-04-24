@@ -15,6 +15,11 @@
     {{-- cantumin css --}}
     <link rel="stylesheet" href="{{asset('tailwind-full.css')}}">
 
+    <style>
+        ::-webkit-scrollbar{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     

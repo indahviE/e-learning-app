@@ -156,16 +156,12 @@
                 </div>
                 <div class="p-2 md:block text-left">
                     <h2 class="text-sm font-semibold text-gray-800">{{Auth::user() ? Auth::user()->name : 'Please Login..'}}</h2>
-                    <p class="text-xs text-gray-500">{{Auth::user() ? Auth::user()->role : 'Or i will kick you..'}}</p>
+                    <p class="text-xs text-gray-500">{{Auth::user() ? 'role ' . Auth::user()->role  : 'Or i will kick you..'}}</p>
                 </div>                
             </button>
             <ul class="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
-                <li>
-                    <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-[#f84525] hover:bg-gray-50">Profile</a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-[#f84525] hover:bg-gray-50">Settings</a>
-                </li>
+
+               
                 <li>
                     <form method="POST" action="">
                         <a role="menuitem" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-[#f84525] hover:bg-gray-50 cursor-pointer"

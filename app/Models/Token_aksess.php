@@ -10,11 +10,11 @@ class Token_aksess extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $table = "token_akses";
+    public $table = "token_pembayaran";
     
     protected $fillable = [
         'kursus_id',
-        'pengguna_id',
+        'user_id',
         'status'
     ];
 }
