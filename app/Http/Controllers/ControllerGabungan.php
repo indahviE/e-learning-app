@@ -54,14 +54,25 @@ class ControllerGabungan extends Controller
     {
         $id = $request->id;
         $video_id = $request->video;
+        $is_free_kursus = Kursus::where('id', $id)->first();
 
+        // dd($video_id, $id);
         if (!$id) {
             $pembayaranTerakhir = Pembayaran::where('user_id', Auth::user()->id)
                 ->orderBy('id', 'desc')
                 ->first();
 
             // dd($id);
-            if (!$pembayaranTerakhir) return redirect('/');
+            if (!$pembayaranTerakhir) {
+                if ($is_free_kursus && $is_free_kursus->harga <= 0) {
+                    $kursus = Kursus::findOrFail($id);
+                    return redirect('/member-area?name=' . Str::slug($kursus->nama_kursus) . '&id=' . $kursus->id);
+
+                } else {
+                    return redirect('/');
+                }
+            }
+
 
             $kursus = Kursus::findOrFail($pembayaranTerakhir->kursus_id);
 
@@ -84,7 +95,7 @@ class ControllerGabungan extends Controller
 
         // dd($pembayaranValid, $token_valid, $pembayaranValid && $token_valid);
 
-        if (!$pembayaranValid || !$token_valid) return redirect('/');
+        if ((!$pembayaranValid || !$token_valid) && $kursus->harga > 0) return redirect('/');
 
         $pembayaranValids = Pembayaran::where('user_id', Auth::user()->id)
             ->where('status', 'pembayaran valid')
@@ -96,9 +107,9 @@ class ControllerGabungan extends Controller
         }
 
         $myKursus = Kursus::whereIn('id', $ids)->get();
-
         $videos = Vidio::where('kursus_id', $kursus->id)->orderBy('urutan_dalam_playlist', 'asc')->get();
 
+        $freeKursus = Kursus::where('harga', '<=', 0)->orderBy('id', 'desc')->get();
         if ($video_id) {
 
             $video = Vidio::where('kursus_id', $kursus->id)
@@ -108,9 +119,8 @@ class ControllerGabungan extends Controller
             $video = null;
         }
 
-
         // dd($myKursus, $ids);
-        return view('halaman_utama.MemberArea', ['data_kursus' => $myKursus, 'kursus' => $kursus, 'data_videos' => $videos, 'video' => $video]);
+        return view('halaman_utama.MemberArea', ['data_kursus' => $myKursus, 'kursus' => $kursus, 'data_videos' => $videos, 'video' => $video, 'data_kursus_free' => $freeKursus]);
     }
 
     public function course_by_category_view(Request $request, $name, $id)
@@ -178,6 +188,8 @@ class ControllerGabungan extends Controller
         $menit_sisa = $minute % 60;         // sisa menit
 
         $durasi_kursus = "{$jam}jam/{$menit_sisa}menit";
+
+        if ($kursus->harga <= 0) $access = true;
 
         return view('halaman_utama.DetailKursus', ['kursus' => $kursus, 'access' => $access, 'countCourseByPengajar' => $countCourseByPengajar, 'data_video' => $videos, 'data_comment' => $comment, 'msg' => $msg, 'durasi' => $durasi_kursus]);
     }
