@@ -25,7 +25,7 @@
             <a href="/kursus/category/{{Str::slug($data->nama_pelajaran)}}/{{$data->id}}" action="" method="get" class="h-64 w-64 relative">
                 <button type="submit">
                     <div
-                        class="absolute top-0 left-0 w-[230px] h-full bg-gray-900/80 hover:bg-gray-900/30 duration-300 z-[1]">
+                        class="absolute top-0 left-0 w-[230px] h-full bg-gray-900/50 hover:bg-gray-900/30 duration-300 z-[1]">
                     </div>
                     <input name="categ" value="{{ $data->id }}" hidden>
                     <input name="name" value="{{ $data->nama_pelajaran }}" hidden>
@@ -33,7 +33,6 @@
                         class="bg-[url('{{ $data->foto }}')] bg-center bg-cover mx-auto h-64 w-[230px] flex items-end justify-center p-4 text-white font-semibold">
                         <span class="z-[3]">
                             {{ $data->nama_pelajaran }}
-
                         </span>
                     </div>
                 </button>
