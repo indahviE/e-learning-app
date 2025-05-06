@@ -150,6 +150,65 @@
             @endif
         @endforeach
 
+        <div class="mt-8 mb-3 border-b w-full"></div>
+
+        <li class=" group" onclick="document.getElementById('free_kursus').classList.toggle('hidden')">
+            <p
+                class="flex font-semibold items-center cursor-pointer py-2 px-4 bg-blue-700 text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                <i class=' mr-1.5 text-lg'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64">
+                        <path fill="currentColor"
+                            d="M52 2H12C6.477 2 2 6.477 2 12v40c0 5.523 4.477 10 10 10h40c5.523 0 10-4.477 10-10V12c0-5.523-4.477-10-10-10M18 26h-5.09v4.5H18v3h-5.09V41H10V23h8zm12.475 15h-3.021l-2.471-7.5h-1.125V41H21V23h5c2.758 0 5 2.355 5 5.25c0 2.197-1.293 4.084-3.121 4.865zM42 26h-5.09v4.5H42v3h-5.09V38H42v3h-8V23h8zm12 0h-5.09v4.5H54v3h-5.09V38H54v3h-8V23h8z" />
+                        <path fill="currentColor"
+                            d="M26 26h-2.143v4.5H26c1.182 0 2.143-1.01 2.143-2.25S27.182 26 26 26" />
+                    </svg>
+                </i>
+                <span class="text-sm">Tekan Untuk Akses Kursus Gratis</span>
+                {{-- <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i> --}}
+            </p>
+        </li>
+
+        <div class="hidden" id="free_kursus">
+            <div class="text-sm mb-3 mt-2 font-semibold text-gray-800 text-end"> Mulai Akses Kursus gratis, dengan harga
+                Rp.0</div>
+            <div class="mt-3 mb-3 border-b w-full"></div>
+            @foreach ($data_kursus_free as $data)
+                @if ($kursus->id == $data->id)
+                    <li class="mb-2 group">
+                        <p
+                            class="flex font-semibold items-center py-2 px-4 text-gray-900 bg-gray-300 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                            <i class='mr-1.5 text-lg'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z" />
+                                </svg>
+                                </svg>
+                            </i>
+                            <span class="text-sm">{{ $data->nama_kursus }}</span>
+                            {{-- <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i> --}}
+                            </a>
+                    </li>
+                @else
+                    <li class="mb-2 group">
+                        <a href="/member-area?name={{ Str::slug($data->nama_kursus) }}&id={{ $data->id }}"
+                            class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                            <i class='mr-1.5 text-lg'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z" />
+                                </svg>
+                                </svg>
+                            </i>
+                            <span class="text-sm">{{ $data->nama_kursus }}</span>
+                            {{-- <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i> --}}
+                        </a>
+                    </li>
+                @endif
+            @endforeach
+        </div>
+
 
         <li class="mt-3 group">
             <form action="/logout" method="post">
@@ -202,7 +261,8 @@
                         </svg> PLAYLIST TRACKING KURSUS</span>
                 </button>
             </h2>
-            <div id="accordion-open-body-1" class="" aria-labelledby="accordion-open-heading-1" class="">
+            <div id="accordion-open-body-1" class="" aria-labelledby="accordion-open-heading-1"
+                class="">
                 <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900 "
                     id="deskripsi">
                     <p class="mb-2 text-gray-500 text-sm dark:text-gray-400">
@@ -213,8 +273,7 @@
             </div>
             @foreach ($data_videos as $data)
                 @if ($video && $video->id == $data->id)
-                    <div
-                        id="accordion-open-heading-2 border-b">
+                    <div id="accordion-open-heading-2 border-b">
                         <button type="button"
                             class="flex items-center bg-blue-500/20 hover:bg-blue-400 justify-between w-full p-5 font-medium rtl:text-right text-gray-900 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 gap-3"
                             data-accordion-target="#accordion-open-body-2" aria-expanded="false"
@@ -245,8 +304,9 @@
     </div>
 </div>
 
-
-@include('components.footer')
+<div class="absolute top-[180vh] left-0 z-[99]">
+    @include('components.footer')
+</div>
 
 
 
