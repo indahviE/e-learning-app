@@ -28,8 +28,8 @@ return new class extends Migration
             $table->timestamps();
 
             //Assign foreign key
-            $table->foreign('pengajar_id')->references('id')->on('pengajar');
-            $table->foreign('category_id')->references('id')->on('category');
+            $table->foreign('pengajar_id')->references('id')->on('pengajar')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
         });
     }
 

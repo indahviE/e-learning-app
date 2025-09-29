@@ -2,8 +2,8 @@
 
 <!-- component -->
 {{-- kirim file harus pakai enctype --}}
-<form method="POST" action="/category/create" enctype="multipart/form-data" class="flex items-center h-screen"> 
-    @csrf 
+<form method="POST" action="/category/create" enctype="multipart/form-data" class="flex items-center h-screen">
+    @csrf
     {{-- token, gunanya untuk agar laravel mengenali kita kirim form --}}
 
     <div class="bg-white  shadow-xl rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 w-10/12 mx-auto">
@@ -21,7 +21,7 @@
                 </label>
                 <input name="nama_pelajaran"
                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-                    id="grid-first-name" type="text" placeholder="Masukkan Nama Pelajaran . . .">
+                    id="grid-first-name" type="text" placeholder="Masukkan Nama Pelajaran . . ." required>
                 <p class="text-red text-xs italic">Please fill out this field.</p>
             </div>
             <div class="md:w-1/2 px-3">
@@ -43,7 +43,7 @@
                     Deskripsi
                 </label>
                 <textarea name="deskripsi" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-                    id="grid-first-name" type="text" placeholder="Masukkan Deskripsi . . ."></textarea>
+                    id="grid-first-name" type="text" placeholder="Masukkan Deskripsi . . ." required></textarea>
                 <p class="text-red text-xs italic">Please fill out this field.</p>
             </div>
         </div>

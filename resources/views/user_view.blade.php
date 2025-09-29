@@ -28,7 +28,9 @@
                 <div class="rounded-t mb-0 px-0 border-0">
                     <div class="flex flex-wrap items-center px-4 py-2">
                         <div class="relative w-full max-w-full flex-grow flex-1">
-                            <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Data Users</h3>
+                            <h1 class="font-bold text-2xl text-gray-900 dark:text-gray-50 mb-3">
+                                DATA USERS
+                            </h1>
                         </div>
                     </div>
                     <div class="block w-full overflow-x-auto">
@@ -37,7 +39,7 @@
                                 <tr>
                                     <th
                                         class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        #</th>
+                                        No</th>
                                     <th
                                         class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         name</th>
@@ -88,8 +90,11 @@
                                             <form action="/user/delete/{{ $data->id }}" method="post">
                                                 @csrf
 
-                                                <button type="submit"
-                                                    class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-xs px-3 py-1.5 text-center me-2 mb-2">Delete</button>
+                                                <button onclick="return confirm('Apakah yakin data ingin dihapus?')"
+                                                    type="submit"
+                                                    class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-xs px-3 py-1.5 text-center me-2 mb-2">
+                                                    Delete Data
+                                                </button>
                                             </form>
                                         </td>
                                     </tr>
@@ -107,7 +112,7 @@
                 {{-- <a href="/user/create" class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 ">Tambah Data User Baru!</a> --}}
 
                 <button onclick="handleToggleDeleteTable()" type="button"
-                    class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 ">Tampilkan
+                    class="text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 ">Tampilkan
                     Data Yang Dihapus</button>
             </div>
 

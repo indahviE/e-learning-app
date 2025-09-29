@@ -1,4 +1,4 @@
-<nav class="flex items-center border-b justify-between px-12 py-4 bg-white shadow">
+<nav class="flex items-center bg-white border-b justify-between px-12 py-4 shadow">
     <!-- Logo & Search -->
     <div class="flex items-center gap-6">
         <!-- Logo -->
@@ -38,7 +38,7 @@
         @if (!Auth::user())
             <a href="/login"
                 class="px-4 py-2 border border-gray-400 rounded-md text-gray-800 hover:bg-gray-100">Login</a>
-            <a href="/register" class="px-4 py-2 rounded-md text-white bg-pink-500 hover:bg-pink-600">Sign Up</a>
+            <a href="/register" class="px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-600">Sign Up</a>
         @endif
     </div>
 </nav>

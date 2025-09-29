@@ -37,7 +37,7 @@
                                 <tr>
                                     <th
                                         class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        #</th>
+                                        No</th>
                                     <th
                                         class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         Nama Pengajar</th>
@@ -80,12 +80,12 @@
                                         <td
                                             class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                             <a href="{{$data->foto}}" target="_blank">
-                                                <img src=" {{ $data->foto }}" alt="" style="width: 64px; height:64px">
+                                                <img src=" {{ $data->foto }}" alt="" style="width: 117px; height:63px">
                                             </a>
                                         </td>
                                         <td
                                             class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 flex">
-                                            
+
 
                                                 {{-- <a href="/pengajar/update/{{$data->id}}" type="submit"
                                                     class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-3 py-1.5 text-center me-2 mb-2">Update Data</a>
