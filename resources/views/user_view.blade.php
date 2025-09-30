@@ -50,7 +50,7 @@
                                         class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         role</th>
                                     <th
-                                        class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        class="px-4 text-end bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         action</th>
                                     <th
                                         class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">
@@ -77,15 +77,17 @@
                                             {{ $data->role }}
                                         </td>
                                         <td
-                                            class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 flex">
-                                            <form action="/user/assign/pengajar/{{ $data->id }}" method="post">
-                                                @csrf
+                                            class="border-t-0 px-4 justify-end align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 flex">
+                                            @if ($data->role != 'pengajar' && $data->role != "admin")
+                                                <form action="/user/assign/pengajar/{{ $data->id }}" method="post">
+                                                    @csrf
 
-                                                <button type="submit"
-                                                    class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-3 py-1.5 text-center me-2 mb-2">Assign
-                                                    to pengajar</button>
+                                                    <button type="submit"
+                                                        class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-3 py-1.5 text-center me-2 mb-2">Assign
+                                                        to pengajar</button>
 
-                                            </form>
+                                                </form>
+                                            @endif
 
                                             <form action="/user/delete/{{ $data->id }}" method="post">
                                                 @csrf

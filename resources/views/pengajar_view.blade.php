@@ -80,7 +80,8 @@
                                         <td
                                             class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                             <a href="{{$data->foto}}" target="_blank">
-                                                <img src=" {{ $data->foto }}" alt="" style="width: 117px; height:63px">
+                                                <div class="w-[80px] h-[80px] bg-cover bg-center bg-[url('{{ $data->foto }}')]"></div>
+                                                {{-- <img src=" {{ $data->foto }}" alt="" style="width: 117px; height:63px"> --}}
                                             </a>
                                         </td>
                                         <td

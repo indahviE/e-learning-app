@@ -17,7 +17,8 @@ class Pengajar extends Model
         'keahlian',
         'bio',
         'foto',
-        'user_id'
+        'user_id',
+        'notelp'
     ];
 
     /**

@@ -43,21 +43,32 @@
             function handleChange() {
                 document.getElementById('label_foto').classList.add('hidden');
                 document.getElementById('alert').classList.toggle('hidden');
-
-
             }
         </script>
     </div>
 
     <!-- Email -->
-    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-            Your Username
-        </label>
-        <input name="name" value="{{ $data->name }}"
-            class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-            id="grid-first-name" type="text" placeholder="Masukkan Nama Pelajaran . . ." required>
-        <p class="text-red text-xs italic">Please fill out this field.</p>
+    <div class=" flex px-3 mb-6 md:mb-0">
+        <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                Your Username
+            </label>
+            <input name="name" value="{{ $data->name }}"
+                class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                id="grid-first-name" type="text" placeholder="Masukkan Nama Pelajaran . . ." required>
+
+            <p class="text-red text-xs italic">Please fill out this field.</p>
+        </div>
+
+        <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                Your Whatsappp number
+            </label>
+            <input name="notelp" value="{{ $data->notelp }}"
+                class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                id="grid-first-name" type="text" placeholder="62XXX XXXX XXXX" required>
+            <p class="text-red text-xs italic">Member akan menghubungi nomermu. </p>
+        </div>
     </div>
 
     <div class="-mx-3 md:flex mb-6 px-3">

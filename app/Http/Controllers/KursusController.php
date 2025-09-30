@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Storage;
 class KursusController extends Controller
 {
     //
-    public function kursus_view(Request $request){
+    public function kursus_view(Request $request)
+    {
         $pengajar = Pengajar::where('user_id', Auth::user()->id)->first();
         $kursus = Kursus::with(['pengajar', 'category'])->where('pengajar_id', $pengajar->id)->paginate(10);
         $delete_data = Kursus::onlyTrashed()->get();
@@ -21,7 +22,7 @@ class KursusController extends Controller
 
         // dd($delete_data);
 
-        if($request->s){
+        if ($request->s) {
             $search = $request->s;
             $kursus = Kursus::with(['pengajar', 'category'])->where('nama_kursus', 'LIKE', '%' . $search . '%')->paginate(10);
         }
@@ -29,13 +30,15 @@ class KursusController extends Controller
         return view('kursus_view', ['s' => $search, 'data_kursus' => $kursus, 'data_delete' => $delete_data]);
     }
 
-    public function kursus_view_create(){
+    public function kursus_view_create()
+    {
         $category = Category::all();
         $pengajar = Pengajar::all();
         return view('kursus_create', ['category' => $category, 'pengajar' => $pengajar]);
     }
 
-    public function kursus_view_update(Request $request, $id){
+    public function kursus_view_update(Request $request, $id)
+    {
         $category = Category::all();
         $pengajar = Pengajar::all();
 
@@ -44,10 +47,11 @@ class KursusController extends Controller
         return view('kursus_update', ['data' => $kursus, 'category' => $category, 'pengajar' => $pengajar]);
     }
 
-    public function kursus_create(Request $request){
+    public function kursus_create(Request $request)
+    {
 
-        if($request->hasFile('file_foto')){
-            $file = $request->file('file_foto'); 
+        if ($request->hasFile('file_foto')) {
+            $file = $request->file('file_foto');
             $path = $file->store('public/store'); // menampung lokasi file disimpan dalam projek : public/store/...
             $file_url = Storage::url($path); // untuk mendapatkan filesupaya bisa tampil di web 
 
@@ -55,17 +59,20 @@ class KursusController extends Controller
         }
 
         $request['like'] = 0; // set default like dari 0
+        $pengajar = Pengajar::where('user_id', Auth::user()->id)->first();
+        $request["pengajar_id"] = $pengajar->id;
 
         // dd($request->all());
-        Kursus::create($request->all()); 
+        Kursus::create($request->all());
         return redirect('/kursus')->with('ok', 'Tambah Data telah berhasil!');
     }
 
-    public function kursus_update(Request $request, $id){
+    public function kursus_update(Request $request, $id)
+    {
         $kursus = Kursus::findOrFail($id);
 
         // Mengecek apakah admin menyantumkan foto pada form
-        if($request->hasFile('file_foto')){
+        if ($request->hasFile('file_foto')) {
             $file = $request->file('file_foto'); // simpan file dalam variabel
             $path = $file->store('public/store'); // menampung lokasi file disimpan dalam projek : public/store/...
             $file_url = Storage::url($path); // untuk mendapatkan filesupaya bisa tampil di web : http://...
@@ -73,17 +80,22 @@ class KursusController extends Controller
             $request['foto'] = $file_url; // tambahkan $request[foto] agar bisa tersimpan di database
         }
 
+        $pengajar = Pengajar::where('user_id', Auth::user()->id)->first();
+        $request["pengajar_id"] = $pengajar->id;
+
         $kursus->update($request->all());
         return redirect('/kursus')->with('ok', 'Modify data berhasil!');
     }
 
-    public function kursus_delete(Request $request, $id){
+    public function kursus_delete(Request $request, $id)
+    {
         $kursus = Kursus::findOrFail($id);
         $kursus->delete();
         return redirect('/kursus')->with('ok', 'Data Terhapus!');
     }
 
-    public function kursus_restore(Request $request, $id){
+    public function kursus_restore(Request $request, $id)
+    {
         // dd($id);
         $kursus = Kursus::onlyTrashed()->where('id', $id)->first();
         $kursus->restore();

@@ -39,6 +39,14 @@
             <a href="/login"
                 class="px-4 py-2 border border-gray-400 rounded-md text-gray-800 hover:bg-gray-100">Login</a>
             <a href="/register" class="px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-600">Sign Up</a>
+        @else
+            <form action="/logout" method="post">
+                @csrf
+                <button type="submit"
+                    class="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center transition duration-200">
+                    Logout
+                </button>
+            </form>
         @endif
     </div>
 </nav>

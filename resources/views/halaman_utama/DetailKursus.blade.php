@@ -3,8 +3,7 @@
 
 <section class="relative w-full h-[500px]">
     <!-- Background image -->
-    <img src="{{$kursus->foto}}"
-        alt="Blender Course" class="w-full h-full object-cover" />
+    <img src="{{ $kursus->foto }}" alt="Blender Course" class="w-full h-full object-cover" />
 
     <div class="absolute w-full h-full bg-black/40 top-0 left-0"></div>
 
@@ -105,7 +104,6 @@
         <div class="bg-white rounded-lg flex items-center gap-8 shadow-md p-12 w-full max-w-5xl">
             <div class="text-start mb-6">
                 <h1 class="text-2xl font-bold text-gray-800 mb-2">Form Pembayaran</h1>
-
                 @if (Session::has('ok'))
                     <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4">
                         <p class="font-bold">Selamatt!</p>
@@ -123,9 +121,14 @@
                     </div>
                 @endif
 
-                {{-- <div class="mt-3 text-start">
-                <a href="#" class="text-blue-600 hover:underline">Baca Cara Pembayaran</a>
-            </div> --}}
+
+
+                <div class="mt-3 text-start">
+                    <a href="https://wa.me/{{$kursus->pengajar->notelp}}?text=Selamat%20pagi%2Fsiang%2Fsore%20kak%2C%20saya%20ingin%20bertanya%2D%2Dtanya%20seputar%20kursus%20kaka%2E%20dengan%20judul%20{{$kursus->nama_kursus}}%20bisa%20kak?"
+                        class="text-blue-600 hover:underline" target="_blank">
+                        Hubungi Pengajar Untuk Membayar
+                    </a>
+                </div>
             </div>
 
 
@@ -146,6 +149,7 @@
                         <option value="BANK BSI">BANK BSI</option>
                         <option value="BANK BCA">BANK BCA</option>
                         <option value="BANK BNI">BANK BNI</option>
+                        <option value="Pembayaran Lainnya">Pembayaran Lainnya</option>
                     </select>
                 </div>
 

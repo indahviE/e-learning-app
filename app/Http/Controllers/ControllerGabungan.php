@@ -55,6 +55,9 @@ class ControllerGabungan extends Controller
         $id = $request->id;
         $video_id = $request->video;
         $is_free_kursus = Kursus::where('id', $id)->first();
+        $adakah_kursus_yang_telah_dibayar = Pembayaran::where('user_id', Auth::user()->id)
+            ->where('status', 'pembayaran valid')
+            ->first();
 
         // dd($video_id, $id);
         if (!$id) {
@@ -67,7 +70,6 @@ class ControllerGabungan extends Controller
                 if ($is_free_kursus && $is_free_kursus->harga <= 0) {
                     $kursus = Kursus::findOrFail($id);
                     return redirect('/member-area?name=' . Str::slug($kursus->nama_kursus) . '&id=' . $kursus->id);
-
                 } else {
                     return redirect('/');
                 }
@@ -75,11 +77,16 @@ class ControllerGabungan extends Controller
 
 
             $kursus = Kursus::findOrFail($pembayaranTerakhir->kursus_id);
-
-            return redirect('/member-area?name=' . Str::slug($kursus->nama_kursus) . '&id=' . $kursus->id);
+            // dd('ok');
+            if ($adakah_kursus_yang_telah_dibayar) {
+                return redirect('/member-area?name=' . Str::slug($kursus->nama_kursus) . '&id=' . $adakah_kursus_yang_telah_dibayar->kursus_id);
+            } else {
+                return redirect('/member-area?name=' . Str::slug($kursus->nama_kursus) . '&id=' . $kursus->id);
+            }
         } else {
             $kursus = Kursus::findOrFail($id);
         }
+
 
         // pengecekan apakah user sudah membeli
         // Start filtering
@@ -93,8 +100,9 @@ class ControllerGabungan extends Controller
             ->where('status', 'active')
             ->first();
 
-        // dd($pembayaranValid, $token_valid, $pembayaranValid && $token_valid);
+        // dd($pembayaranValid, $token_valid, $kursus->harga > 0, $kursus, Auth::user()->id);
 
+        // dd((!$pembayaranValid || !$token_valid) && $kursus->harga > 0);
         if ((!$pembayaranValid || !$token_valid) && $kursus->harga > 0) return redirect('/');
 
         $pembayaranValids = Pembayaran::where('user_id', Auth::user()->id)
@@ -105,6 +113,8 @@ class ControllerGabungan extends Controller
         foreach ($pembayaranValids as $data) {
             $ids[] = $data->kursus_id;
         }
+
+        // dd('ok');   
 
         $myKursus = Kursus::whereIn('id', $ids)->get();
         $videos = Vidio::where('kursus_id', $kursus->id)->orderBy('urutan_dalam_playlist', 'asc')->get();

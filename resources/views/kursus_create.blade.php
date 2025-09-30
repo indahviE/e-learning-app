@@ -46,12 +46,23 @@
                     id="grid-first-name" type="text" placeholder="Masukkan Harga Kursus . . ." required>
                 <p class="text-red text-xs italic">Tambahkan harga / 0 untuk gratis.</p>
             </div>
-            <div class="md:w-1/3 px-3">
+
+            <div class="md:w-1/2 px-3">
+                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
+                    fore="grid-last-name">
+                    Tanggal
+                </label>
+                <input name="tanggal"
+                    class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
+                    id="grid-last-name" type="date" placeholder="">
+            </div>
+            
+            {{-- <div class="md:w-1/3 px-3">
                 <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
                     fore="grid-last-name">
                     Pengajar
                 </label>
-                {{-- <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> --}}
+                
                 <select id="countries" name="pengajar_id"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected disabled>Pilih Pengajar . . .</option>
@@ -62,7 +73,7 @@
 
                 </select>
 
-            </div>
+            </div> --}}
             <div class="md:w-1/3 px-3">
                 <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">
                     Category Kursus
@@ -71,7 +82,7 @@
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected disabled>Pilih Kategori Kursus . . .</option>
                     @foreach ($category as $data)
-                        <option value="{{$data->id}}">{{$data->nama_pelajaran}}</option>
+                        <option value="{{ $data->id }}">{{ $data->nama_pelajaran }}</option>
                     @endforeach
                 </select>
             </div>
@@ -89,7 +100,7 @@
                 <p class="text-red text-xs italic">Please fill out this field.</p>
             </div>
 
-            <div class="md:w-1/2 px-3">
+            {{-- <div class="md:w-1/2 px-3">
                 <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
                     fore="grid-last-name">
                     Tanggal
@@ -97,7 +108,7 @@
                 <input name="tanggal"
                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
                     id="grid-last-name" type="date" placeholder="">
-            </div>
+            </div> --}}
         </div>
 
         <div class="flex">
