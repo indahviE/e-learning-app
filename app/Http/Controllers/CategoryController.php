@@ -38,7 +38,7 @@ class CategoryController extends Controller
 
         if($request->hasFile('file_foto')){
             $file = $request->file('file_foto'); 
-            $path = $file->store('public/store'); // menampung lokasi file disimpan dalam projek : public/store/...
+            $path = $file->store('storage/public/store'); // menampung lokasi file disimpan dalam projek : public/store/...
             $file_url = Storage::url($path); // untuk mendapatkan filesupaya bisa tampil di web 
 
             $request['foto'] = $file_url;
@@ -54,7 +54,7 @@ class CategoryController extends Controller
         // Mengecek apakah admin menyantumkan foto pada form
         if($request->hasFile('file_foto')){
             $file = $request->file('file_foto'); // simpan file dalam variabel
-            $path = $file->store('public/store'); // menampung lokasi file disimpan dalam projek : public/store/...
+            $path = $file->store('storage/public/store'); // menampung lokasi file disimpan dalam projek : public/store/...
             $file_url = Storage::url($path); // untuk mendapatkan filesupaya bisa tampil di web : http://...
 
             $request['foto'] = $file_url; // tambahkan $request[foto] agar bisa tersimpan di database
