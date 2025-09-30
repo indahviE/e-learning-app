@@ -56,7 +56,7 @@
         </label>
         <input name="name" value="{{ $data->name }}"
             class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-            id="grid-first-name" type="text" placeholder="Masukkan Nama Pelajaran . . .">
+            id="grid-first-name" type="text" placeholder="Masukkan Nama Pelajaran . . ." required>
         <p class="text-red text-xs italic">Please fill out this field.</p>
     </div>
 
@@ -67,7 +67,7 @@
             </label>
             <textarea name="bio"
                 class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-                id="grid-first-name" type="text" placeholder="Masukkan Deskripsi . . .">{{ $data->bio }}</textarea>
+                id="grid-first-name" type="text" placeholder="Masukkan Deskripsi . . ." required>{{ $data->bio }}</textarea>
             {{-- <p class="text-red text-xs italic">Please fill out this field.</p> --}}
         </div>
 
@@ -77,7 +77,7 @@
             </label>
             <textarea name="keahlian"
                 class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-                id="grid-first-name" type="text" placeholder="Masukkan Deskripsi . . .">{{ $data->keahlian }}</textarea>
+                id="grid-first-name" type="text" placeholder="Masukkan Deskripsi . . ." required>{{ $data->keahlian }}</textarea>
             {{-- <p class="text-red text-xs italic">Please fill out this field.</p> --}}
         </div>
     </div>

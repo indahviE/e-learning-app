@@ -22,8 +22,8 @@ return new class extends Migration
             $table->softDeletes(); //bikin column deleted_at
             $table->timestamps();
 
-            $table->foreign('kursus_id')->references('id')->on('kursus');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('kursus_id')->references('id')->on('kursus')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

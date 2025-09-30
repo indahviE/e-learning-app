@@ -100,6 +100,8 @@ class PengajarController extends Controller
 
         $s = "";
         $pengajar = Pengajar::where('user_id', Auth::user()->id)->first();
+
+        // dd($pengajar, Auth::user()->id);
         return view('profile', ['s' => $s, 'data' => $pengajar]);
     }
 }

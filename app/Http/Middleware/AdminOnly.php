@@ -18,9 +18,9 @@ class AdminOnly
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
-
-        if(!$user || $user->role != "admin") return redirect('/');
         
+        if(!$user || $user->role != "admin") return redirect('/');
+
         return $next($request);
 
         return $next($request);

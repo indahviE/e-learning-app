@@ -23,7 +23,7 @@ return new class extends Migration
             $table->softDeletes(); //bikin column deleted_at
             $table->timestamps();
 
-            $table->foreign('kursus_id')->references('id')->on('kursus');
+            $table->foreign('kursus_id')->references('id')->on('kursus')->onDelete('cascade');
         });
     }
 

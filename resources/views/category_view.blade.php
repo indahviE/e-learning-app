@@ -37,7 +37,7 @@
                                 <tr>
                                     <th
                                         class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        #</th>
+                                        No</th>
                                     <th
                                         class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         nama_pelajaran</th>
@@ -72,24 +72,24 @@
                                         </td>
                                         <td
                                             class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                            <a href="{{$data->foto}}" target="_blank">
-                                                <img src=" {{ $data->foto }}" alt="" style="width: 100px; height:100px">
+                                            <a href="{{$data->foto}}">
+                                                <img src=" {{ $data->foto }}" alt="" style="width: 100px; height:140px">
                                             </a>
-                                           
+
                                         </td>
                                         <td
                                             class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 flex">
-                                            
+
 
                                                 <a href="/category/update/{{$data->id}}" type="submit"
                                                     class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-3 py-1.5 text-center me-2 mb-2">Update Data</a>
 
-                                            
+
 
                                             <form action="/category/delete/{{ $data->id }}" method="POST">
                                                 @csrf
 
-                                                <button type="submit"
+                                                <button onclick="return confirm('Apakah yakin data ingin dihapus?')" type="submit"
                                                     class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-xs px-3 py-1.5 text-center me-2 mb-2">Delete</button>
                                             </form>
                                         </td>
@@ -151,22 +151,22 @@
                             @foreach ($data_delete as $data)
                                 <tr class="text-gray-700 dark:text-gray-100">
                                     <th
-                                        class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                                        class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs  p-4 text-left">
                                         {{ $data->nama_pengajar }}
                                     </th>
                                     <td
-                                        class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        {{ $data->deskripsi }}
+                                        class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs p-4 max-w-150 overflow-wrap">
+                                        <p>{{ $data->deskripsi }}
                                     </td>
                                     <td
-                                        class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                        class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs  p-4 object-fit:cover">
                                         <a href="{{$data->foto}}" target="_blank">
-                                            <img src=" {{ $data->foto }}" alt="" style="width: 100px; height:100px">
+                                            <img src=" {{ $data->foto }}" alt="" style="width: 130px; height:70px">
                                         </a>
 
                                     </td>
                                     <td
-                                        class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                        class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs p-4">
                                         <form action="/category/restore/{{ $data->id }}" method="post">
                                             @csrf
 

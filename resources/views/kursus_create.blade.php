@@ -21,7 +21,7 @@
                 </label>
                 <input name="nama_kursus"
                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-                    id="grid-first-name" type="text" placeholder="Masukkan Nama Pelajaran . . .">
+                    id="grid-first-name" type="text" placeholder="Masukkan Nama Pelajaran . . ." required>
                 <p class="text-red text-xs italic">Please fill out this field.</p>
             </div>
             <div class="md:w-1/2 px-3">
@@ -30,7 +30,7 @@
                     Foto
                 </label>
                 <input name="file_foto"
-                    class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
+                    class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-2"
                     id="grid-last-name" type="file" placeholder="">
             </div>
         </div>
@@ -43,7 +43,7 @@
                 </label>
                 <input name="harga"
                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-                    id="grid-first-name" type="text" placeholder="Masukkan Harga Kursus . . .">
+                    id="grid-first-name" type="text" placeholder="Masukkan Harga Kursus . . ." required>
                 <p class="text-red text-xs italic">Tambahkan harga / 0 untuk gratis.</p>
             </div>
             <div class="md:w-1/3 px-3">
