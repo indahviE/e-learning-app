@@ -29,6 +29,7 @@ class PembayaranController extends Controller
 
 
     public function pembayaran_create(Request $request, $id){
+       
         $kursus = Kursus::findOrFail($id);
         $request['user_id'] = Auth::user()->id;
         $request['tanggal'] = Carbon::now();
@@ -36,7 +37,8 @@ class PembayaranController extends Controller
 
         $request['status'] = "menunggu konfirmasi";
         // tambahin pengajar_id
-        $request['pengajar_id'] = $kursus->pengajar_id;
+        $pengajar = Pengajar::findOrFail($kursus->pengajar_id);
+        $request['pengajar_id'] = $pengajar->user_id;
 
         // dd($request->all());
 
