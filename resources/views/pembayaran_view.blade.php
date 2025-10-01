@@ -10,14 +10,14 @@
         {{-- Alert Success / Error --}}
         @if (Session::has('ok'))
             <div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md shadow-sm">
-                <p class="font-semibold">✅ Berhasil</p>
+                <p class="font-semibold">Berhasil</p>
                 <p class="text-sm">{{ Session::get('ok') }}</p>
             </div>
         @endif
 
         @if (Session::has('err'))
             <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md shadow-sm">
-                <p class="font-semibold">⚠️ Terjadi Kesalahan</p>
+                <p class="font-semibold">Terjadi Kesalahan</p>
                 <p class="text-sm">{{ Session::get('err') }}</p>
             </div>
         @endif
@@ -148,7 +148,7 @@
         {{-- Data Terhapus --}}
         <div id="table_delete" class="bg-white hidden shadow-md rounded-lg overflow-hidden">
             <div class="px-6 py-4 border-b bg-gray-50">
-                <h3 class="font-bold text-gray-800 text-lg">🗑️ Data Yang Terhapus</h3>
+                <h3 class="font-bold text-gray-800 text-lg">Data Yang Terhapus</h3>
             </div>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm text-gray-700">
