@@ -15,6 +15,7 @@ class Pembayaran extends Model
     protected $fillable = [
         'kursus_id',
         'user_id',
+        'pengajar_id',
         'bukti_bayar',
         'tanggal',
         'metode_bayar',

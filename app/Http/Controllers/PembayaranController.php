@@ -17,9 +17,10 @@ class PembayaranController extends Controller
     //
     public function pembayaran_view(Request $request){
         $search = "";
-        $pembayaranSukses = Pembayaran::with(['user', 'kursus'])->where('status', 'pembayaran valid')->where('user_id', Auth::user()->id)->paginate(20);
-        $pembayaranPending = Pembayaran::with(['user', 'kursus'])->where('status', 'menunggu konfirmasi')->where('user_id', Auth::user()->id)->paginate(20);
-        $delete = Pembayaran::with(['user', 'kursus'])->where('user_id', Auth::user()->id)->onlyTrashed()->get();
+        // dd(Auth::user()->id);
+        $pembayaranSukses = Pembayaran::with(['user', 'kursus'])->where('status', 'pembayaran valid')->where('pengajar_id', Auth::user()->id)->paginate(20);
+        $pembayaranPending = Pembayaran::with(['user', 'kursus'])->where('status', 'menunggu konfirmasi')->where('pengajar_id', Auth::user()->id)->paginate(20);
+        $delete = Pembayaran::with(['user', 'kursus'])->where('pengajar_id', Auth::user()->id)->onlyTrashed()->get();
 
         // dd($pembayaranSukses, $pembayaranPending);
 
@@ -34,6 +35,8 @@ class PembayaranController extends Controller
         $request['kursus_id'] = $kursus->id;
 
         $request['status'] = "menunggu konfirmasi";
+        // tambahin pengajar_id
+        $request['pengajar_id'] = $kursus->pengajar_id;
 
         // dd($request->all());
 
